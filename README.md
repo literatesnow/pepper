@@ -11,7 +11,7 @@ Configured by environment variables:
 
 ```bash
   export PEPPER_DIR=/tmp/pepper
-  ./pepper img1.jpg img2.jpg
+  ./pepper.sh img1.jpg img2.jpg
 ```
 
 ## Image Support
