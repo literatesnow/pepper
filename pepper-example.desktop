@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Pepper
+GenericName=Pepper
+X-GNOME-FullName=Pepper
+Comment=Images ready for the internet.
+Exec=env PEPPER_DIR=/tmp/pepper pepper.sh %F
+Icon=pepper.png
+StartupNotify=false
+Terminal=true
+Type=Application
+MimeType=image/jpeg;image/jpg;
