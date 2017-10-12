@@ -112,11 +112,16 @@ update_index() {
   IMAGE_DATE=${IMAGE_DATE/:/-}
   IMAGE_DATE=${IMAGE_DATE/:/-}
 
+  if [ "$IMAGE_DATE" == '0000-00-00 00:00:00' ]; then
+    echo "Invalid date: $IMAGE_DATE"
+    return 1
+  fi
+
   local JSON="{
-    \"file_name\":  $(echo "$FILE_NAME"         | jq -R .),
-    \"image_date\": $(echo "$IMAGE_DATE"        | jq -R .),
-    \"added_date\": $(date '+%Y-%m-%d %H:%M:%S' | jq -R .),
-    \"tags\":       $(echo "$TAGS" | jq -Rs 'split("\n") | [ .[] | select(length > 0) ]')
+    \"fileName\":  $(echo "$FILE_NAME"         | jq -R .),
+    \"imageDate\": $(echo "$IMAGE_DATE"        | jq -R .),
+    \"addedDate\": $(date '+%Y-%m-%d %H:%M:%S' | jq -R .),
+    \"tags\":      $(echo "$TAGS" | jq -Rs 'split("\n") | [ .[] | select(length > 0) ]')
   }"
 
   [ ! -e "$INDEX_FILE" ] && echo '[]' > "$INDEX_FILE"
