@@ -9,10 +9,10 @@ Configured by environment variables:
 * ``PEPPER_DIR``: Directory to store output images and state.
 * ``PUSH_TO_EXIT``: Ask to exit program.
 
-``bash
+```bash
   export PEPPER_DIR=/tmp/pepper
   ./pepper img1.jpg img2.jpg
-``
+```
 
 ## Image Support
 
